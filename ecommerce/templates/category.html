@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block body %}
+<div class="products-card">
+{% for product in products %}
+<div class="card">
+    <img src="{{ product.product_image }}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.product_name }}</h5>
+      <p class="card-text">{{ product.product_description }}.</p>
+      <a href="#" class="btn btn-outline-info">${{product.product_price}}</a>
+      <button class="updateCart btn btn-primary" data-product="{{product.id}}" data-action="add">Add to
+        cart</button>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock body %}
